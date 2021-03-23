@@ -44,4 +44,3 @@ void RecoverySequence() {
     Here and exemple of an ballon Recovery sequence. It should be used when the balloon have a problem (ex: low battery).
   */
 }
-
