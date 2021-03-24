@@ -14,7 +14,7 @@ class AnalogSensor: public Sensor
   
     ~AnalogSensor();
     
-    AnalogSensor();
+    AnalogSensor(int pin);
 };
 
 #endif // __ODB_ANALOGSENSOR_H

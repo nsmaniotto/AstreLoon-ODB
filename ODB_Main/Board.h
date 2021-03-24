@@ -15,7 +15,7 @@ class Board
   
     ~Board();
     
-    Board();
+    Board(int type);
     
     int addSensor(Sensor sensor);
 };

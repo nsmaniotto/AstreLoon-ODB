@@ -5,7 +5,7 @@ AnalogSensor::~AnalogSensor()
   // TODO
 }
     
-AnalogSensor::AnalogSensor()
+AnalogSensor::AnalogSensor(int pin)
 {
-  // TODO
+  this->pin = pin;
 }

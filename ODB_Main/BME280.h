@@ -14,7 +14,7 @@ class BME280: public I2CSensor, public HumiditySensor, public PressureSensor, pu
   
     ~BME280();
     
-    BME280();
+    BME280(int address);
 
     // Overriding Sensor::fetchDatas()
     Data* fetchDatas() override;

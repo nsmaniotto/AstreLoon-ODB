@@ -15,7 +15,7 @@ class HumiditySensor
   
     ~HumiditySensor();
     
-    HumiditySensor();
+    HumiditySensor(int humidityUnit);
     
     virtual Data fetchHumidity();
 };

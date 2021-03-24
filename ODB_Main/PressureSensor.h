@@ -15,7 +15,7 @@ class PressureSensor
   
     ~PressureSensor();
     
-    PressureSensor();
+    PressureSensor(int pressureUnit);
     
     virtual Data fetchPressure();
 };

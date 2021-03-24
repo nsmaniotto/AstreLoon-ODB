@@ -1,14 +1,18 @@
 #include "Board.h"
 
+#include <stdlib.h>   /* malloc, free, rand */
+#include "Constants.h"
+
 Board::~Board()
 {
-  // TODO
+  free(sensors);
 }
     
-Board::Board()
+Board::Board(int type)
 {
-  // TODO
-}
+  this->type = type;
+  this->sensors = malloc(BOARD_MAX_NB_SENSORS * sizeof(Sensor));
+ }
     
 int Board::addSensor(Sensor sensor)
 {

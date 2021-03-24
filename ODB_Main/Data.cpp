@@ -4,8 +4,14 @@ Data::~Data()
 {
   // TODO
 }
-    
+
 Data::Data()
 {
-  // TODO
+  
+}
+
+Data::Data(float value, int unit)
+{
+  this->value = value;
+  this->unit = unit;
 }

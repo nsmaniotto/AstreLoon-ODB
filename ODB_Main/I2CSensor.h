@@ -14,7 +14,7 @@ class I2CSensor: public Sensor
   
     ~I2CSensor();
     
-    I2CSensor();
+    I2CSensor(int address);
 };
 
 #endif // __ODB_I2CSENSOR_H

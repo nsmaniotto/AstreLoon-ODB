@@ -12,8 +12,10 @@ class Data
   public:
   
     ~Data();
-    
+
     Data();
+    
+    Data(float value, int unit);
 };
 
 #endif // __ODB_DATA_H

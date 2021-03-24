@@ -5,7 +5,7 @@ I2CSensor::~I2CSensor()
   // TODO
 }
     
-I2CSensor::I2CSensor()
+I2CSensor::I2CSensor(int address)
 {
-  // TODO
+  this->address = address;
 }

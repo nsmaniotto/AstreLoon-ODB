@@ -17,7 +17,7 @@ class ODB
     
     ODB();
     
-    int addBoard();
+    int addBoard(Board board);
 };
 
 #endif // __ODB_ODB_H

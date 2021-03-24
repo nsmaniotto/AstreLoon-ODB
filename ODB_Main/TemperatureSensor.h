@@ -15,7 +15,7 @@ class TemperatureSensor
   
     ~TemperatureSensor();
     
-    TemperatureSensor();
+    TemperatureSensor(int temperatureUnit);
     
     virtual Data fetchTemperature();
 };
