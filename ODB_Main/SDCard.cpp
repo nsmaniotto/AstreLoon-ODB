@@ -64,13 +64,6 @@ void SDCard::write(char* fileName, char* input)
 void SDCard::read(char* fileName)
 {
   File file;
-
-  // Open serial communications and wait for port to open
-  Serial.begin(9600);
-  
-  while (!Serial) {
-    ; // Wait for serial port to connect. Needed for native USB port only
-  }
   
   // Open the file for reading
   file = SD.open(fileName);
