@@ -18,7 +18,7 @@ class SDCard
     
     void write(char* fileName, char* input);
 
-    char* read(char* fileName);
+    void read(char* fileName);
 };
 
 #endif // __ODB_SDCARD_H

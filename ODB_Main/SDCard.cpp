@@ -1,3 +1,8 @@
+/*
+ * Used resources:
+ * https://create.arduino.cc/projecthub/electropeak/sd-card-module-with-arduino-how-to-read-write-data-37f390
+ */
+
 #include "SDCard.h"
 
 #include <stdlib.h>   /* malloc, free, rand */
@@ -56,8 +61,36 @@ void SDCard::write(char* fileName, char* input)
   }
 }
 
-char* SDCard::read(char* fileName)
+void SDCard::read(char* fileName)
 {
-  // TODO
-  return "aaaaaaaa";
+  File file;
+
+  // Open serial communications and wait for port to open
+  Serial.begin(9600);
+  
+  while (!Serial) {
+    ; // Wait for serial port to connect. Needed for native USB port only
+  }
+  
+  // Open the file for reading
+  file = SD.open(fileName);
+  
+  if (file)
+  {
+    // Read from the file until there's nothing else in it
+    while (file.available()) 
+    {
+      Serial.write(file.read());
+    }
+    
+    // Close the file
+    file.close();
+  }
+  else
+  {
+    // File didn't open
+    #ifdef ODB_DEBUG
+      Serial.println("[" + __FILE__ + "](" + __LINE__ + "): Couldn't open file '" + fileName + "'");
+    #endif
+  }
 }
