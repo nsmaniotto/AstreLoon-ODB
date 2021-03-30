@@ -34,7 +34,26 @@ SDCard* SDCard::getInstance()
 
 void SDCard::write(char* fileName, char* input)
 {
+  File file;
+
+  // Open the file for writing
+  file = SD.open(fileName, FILE_WRITE);
   
+  if (file)
+  {
+    // Write on the file
+    file.println(input);
+
+    // Close the file
+    file.close();
+  }
+  else
+  {
+    // File didn't open
+    #ifdef ODB_DEBUG
+      Serial.println("[" + __FILE__ + "](" + __LINE__ + "): Couldn't open file '" + fileName + "'");
+    #endif
+  }
 }
 
 char* SDCard::read(char* fileName)
