@@ -9,6 +9,9 @@
 #define ODB_STATE_RECOVERY_MODE   3
 #define ODB_STATE_EMERGENCY_MODE  4
 
+// SD card constants
+#define SDCARD_PIN    10
+
 // Board types and constants
 #define BOARD_MAX_NB_SENSORS  50
 #define BOARD_TYPE_DEFAULT    0
