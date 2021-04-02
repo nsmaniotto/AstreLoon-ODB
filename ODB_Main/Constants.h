@@ -12,6 +12,13 @@
 // SD card constants
 #define SDCARD_PIN    10
 
+// Radio constants
+#define RADIO_RFM95_CS                10 // Slave select pin
+#define RADIO_RFM95_RST               9
+#define RADIO_RFM95_INT               2 // Interrupt pin
+#define RADIO_RF95_FREQ               915.0 // Change to 434.0 or other frequency, must match RX's freq! 
+#define RADIO_RF95_MAX_WAIT_RESPONSE  100 // in ms
+
 // Board types and constants
 #define BOARD_MAX_NB_SENSORS  50
 #define BOARD_TYPE_DEFAULT    0
