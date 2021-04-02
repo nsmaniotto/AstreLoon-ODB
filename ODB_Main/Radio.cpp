@@ -78,5 +78,39 @@ Radio* Radio::getInstance()
 
 void Radio::send(char* data)
 {
-  // TODO
+  #ifdef ODB_DEBUG
+    Serial.println("#DEBUG#[" + __FILE__ + "](" + __LINE__ + "): Sending " + input + " to rf95_server");
+  #endif
+  
+  this->rf95->send((uint8_t *)data, strlen(data)); // // Send a message to rf95_server giving data and its length
+
+  this->rf95->waitPacketSent(); // Blocks until the transmitter is no longer transmitting.
+  
+  // Now wait for a reply
+  uint8_t buf[RH_RF95_MAX_MESSAGE_LEN];
+  uint8_t len = sizeof(buf); // buffer length in octets: = RH_RF95_MAX_MESSAGE_LEN * sizeof(uint8_t)
+  
+  if (this->rf95->waitAvailableTimeout(RADIO_RF95_MAX_WAIT_RESPONSE))
+  {
+    // Should be a reply message for us now
+    if (this->rf95->recv(buf, &len))
+    {
+      #ifdef ODB_DEBUG
+        Serial.print("#DEBUG#[" + __FILE__ + "](" + __LINE__ + "): Reply received: " + (char*)buf + "  |  RSSI: ");
+        Serial.println(this.rf95->lastRssi(), DEC);
+      #endif
+    }
+    else
+    {
+      #ifdef ODB_DEBUG
+        Serial.println("#ERROR#[" + __FILE__ + "](" + __LINE__ + "): Receive failed");
+      #endif
+    }
+  }
+  else
+  {
+    #ifdef ODB_DEBUG
+      Serial.println("#ERROR#[" + __FILE__ + "](" + __LINE__ + "): No reply, is there a listener around?");
+    #endif
+  }
 }
