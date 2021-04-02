@@ -5,7 +5,7 @@
 
 ODB::~ODB()
 {
-  free(boards);
+  delete boards;
 }
     
 ODB::ODB()
