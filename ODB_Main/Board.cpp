@@ -5,7 +5,7 @@
 
 Board::~Board()
 {
-  free(sensors);
+  delete sensors;
 }
     
 Board::Board(int type)
