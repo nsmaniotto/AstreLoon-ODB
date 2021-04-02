@@ -1,8 +1,10 @@
 #include "Sensor.h"
+#include "Radio.h"
 #include "SDCard.h"
 
 #define ODB_DEBUG
 
+Radio* radio;
 SDCard* sdCard;
 
 void setup() {
@@ -16,6 +18,10 @@ void setup() {
   while (!Serial) {
     ; // Wait for serial port to connect. Needed for native USB port only
   }
+
+  // Initializating radio
+  radio = Radio::getInstance();
+  //radio.init();
 
   // Initializating sdCard
   sdCard = SDCard::getInstance();
