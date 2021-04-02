@@ -1,6 +1,9 @@
 #include "Sensor.h"
+#include "Radio.h"
 
 #define ODB_DEBUG
+
+Radio* radio;
 
 void setup() {
   /*#ifdef ODB_DEBUG
@@ -13,6 +16,10 @@ void setup() {
   while (!Serial) {
     ; // Wait for serial port to connect. Needed for native USB port only
   }
+
+  // Initializating radio
+  radio = Radio::getInstance();
+  //radio.init();
   
   // TODO
 }
