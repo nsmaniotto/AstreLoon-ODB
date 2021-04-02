@@ -9,6 +9,8 @@
 #include <SD.h>       /* SD.begin, SD.open, SD.close */
 #include "Constants.h"
 
+SDCard* SDCard::INSTANCE = NULL;
+
 SDCard::~SDCard()
 {
   free(this->INSTANCE);

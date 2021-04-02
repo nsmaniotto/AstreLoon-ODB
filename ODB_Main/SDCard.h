@@ -5,10 +5,10 @@
 class SDCard
 {
   private:
-  
-    SDCard();
     
     static SDCard* INSTANCE;
+  
+    SDCard();
     
   public:
   
